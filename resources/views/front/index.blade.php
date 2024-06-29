@@ -39,6 +39,19 @@
 						<img src="/images/{{ $bagus2->image }}" width="400px" height="600px" alt="banner" class="banner-image">
 					</div><!--slider-item-->
 
+					<div class="slider-item">
+						<div class="banner-content">
+							<h2 class="banner-title">{{ $bagus3->judul }}( {{ number_format($bagus3->rating/10, 1)}} )</h2>
+							<?php $clean_data = strip_tags($bagus3->deskripsi); ?>
+							<p>{{ strlen($clean_data) > 130 ? substr($clean_data, 0 , 130). '...' : $clean_data }}</p>
+							<div class="btn-wrap">
+								<a href="{{ 'show/' . $bagus3->id }}" class="btn btn-outline-accent btn-accent-arrow">Baca Selengkapnya<i
+										class="icon icon-ns-arrow-right"></i></a>
+							</div>
+						</div><!--banner-content-->
+						<img src="/images/{{ $bagus3->image }}" width="400px" height="600px" alt="banner" class="banner-image">
+					</div><!--slider-item-->
+
 				</div><!--slider-->
 
 				<button class="next slick-arrow">

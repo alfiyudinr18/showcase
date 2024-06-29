@@ -9,8 +9,9 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $bagus1 = Film::orderByDesc('rating')->first();;
-        $bagus2 = Film::orderByDesc('rating')->skip(1)->first();;
+        $bagus1 = Film::orderByDesc('rating')->first();
+        $bagus2 = Film::orderByDesc('rating')->skip(1)->first();
+        $bagus3 = Film::orderByDesc('rating')->skip(2)->first();
         $film = Film::with('kategori')->orderBy('id', 'desc')->paginate(12);
         $horror = Film::where('id_kategori', 1)->paginate(12);
         $animasi = Film::where('id_kategori', 2)->paginate(12);
@@ -19,7 +20,7 @@ class FrontController extends Controller
         $romansa = Film::where('id_kategori', 5)->paginate(12);
         $komedi = Film::where('id_kategori', 6)->paginate(12);
         $aksi = Film::where('id_kategori', 7)->paginate(12);
-        return view('front.index', compact('film', 'bagus1', 'bagus2', 'horror', 'animasi', 'drama', 'fantasi', 'romansa', 'komedi', 'aksi'));
+        return view('front.index', compact('film', 'bagus1', 'bagus2', 'bagus3', 'horror', 'animasi', 'drama', 'fantasi', 'romansa', 'komedi', 'aksi'));
     }
 
     public function getCarouselData()
